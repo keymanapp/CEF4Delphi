@@ -51,7 +51,7 @@ unit uCEFCompletionCallback;
 interface
 
 uses
-  uCEFBaseRefCounted, uCEFInterfaces, uCEFWaitableEvent;
+  uCEFBaseRefCounted, uCEFInterfaces;
 
 type
   TCefCompletionCallbackOwn = class(TCefBaseRefCountedOwn, ICefCompletionCallback)
@@ -70,17 +70,6 @@ type
 
     public
       constructor Create(const proc: TCefCompletionCallbackProc); reintroduce;
-  end;
-
-  TCefEventCompletionCallback = class(TCefCompletionCallbackOwn)
-    protected
-      FEvent : ICefWaitableEvent;
-
-      procedure OnComplete; override;
-
-    public
-      constructor Create(const event : ICefWaitableEvent); reintroduce;
-      destructor  Destroy; override;
   end;
 
 implementation
@@ -125,29 +114,5 @@ procedure TCefFastCompletionCallback.OnComplete;
 begin
   FProc();
 end;
-
-
-// TCefEventCompletionCallback
-
-
-constructor TCefEventCompletionCallback.Create(const event : ICefWaitableEvent);
-begin
-  inherited Create;
-
-  FEvent := event;
-end;
-
-destructor TCefEventCompletionCallback.Destroy;
-begin
-  FEvent := nil;
-
-  inherited Destroy;
-end;
-
-procedure TCefEventCompletionCallback.OnComplete;
-begin
-  if (FEvent <> nil) then FEvent.Signal;
-end;
-
 
 end.

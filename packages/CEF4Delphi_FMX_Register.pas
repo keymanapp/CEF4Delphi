@@ -49,16 +49,14 @@ implementation
 
 uses
   System.Classes,
-  uCEFChromium, uCEFWindowParent, uCEFChromiumWindow, uBufferPanel,
-  uCEFWorkScheduler, uFMXBufferPanel, uFMXChromium, uFMXWorkScheduler,
-  uCEFServerComponent, uCEFLinkedWindowParent;
+  uCEFChromium, uCEFWindowParent, uCEFChromiumWindow, uBufferPanel, uCEFWorkScheduler,
+  uFMXBufferPanel, uFMXChromium, uFMXWorkScheduler, uCEFServerComponent;
 
 procedure Register;
 begin
-  RegisterComponents('Chromium', [TChromium, TCEFWindowParent, TChromiumWindow,
-                                  TBufferPanel, TFMXBufferPanel, TFMXChromium,
-                                  TFMXWorkScheduler, TCEFWorkScheduler,
-                                  TCEFServerComponent, TCEFLinkedWindowParent]);
+  RegisterComponents('Chromium', [TChromium, TCEFWindowParent, TChromiumWindow, TBufferPanel,
+                                  TFMXBufferPanel, TFMXChromium, TFMXWorkScheduler,
+                                  TCEFWorkScheduler, TCEFServerComponent]);
 end;
 
 end.

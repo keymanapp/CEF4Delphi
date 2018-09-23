@@ -202,23 +202,15 @@ begin
                        '  };' +
                        '})();';
 
-  try
-    TempHandler := TTestExtensionHandler.Create;
-    CefRegisterExtension('myextension', TempExtensionCode, TempHandler);
-  finally
-    TempHandler := nil;
-  end;
+  TempHandler := TTestExtensionHandler.Create;
+
+  CefRegisterExtension('myextension', TempExtensionCode, TempHandler);
 end;
 
 procedure CreateGlobalCEFApp;
 begin
   GlobalCEFApp                     := TCefApplication.Create;
   GlobalCEFApp.OnWebKitInitialized := GlobalCEFApp_OnWebKitInitialized;
-
-  {$IFDEF INTFLOG}
-  GlobalCEFApp.LogFile             := 'debug.log';
-  GlobalCEFApp.LogSeverity         := LOGSEVERITY_INFO;
-  {$ENDIF}
 end;
 
 procedure TJSExtensionFrm.GoBtnClick(Sender: TObject);

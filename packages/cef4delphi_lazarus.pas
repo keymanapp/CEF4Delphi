@@ -45,8 +45,7 @@ uses
   uCEFWindowParent, uCEFWorkScheduler, uCEFWorkSchedulerThread, 
   uCEFWriteHandler, uCEFX509Certificate, uCEFX509CertPrincipal, uCEFXmlReader, 
   uCEFZipReader, uCEFChromium, uBufferPanel, uCEFServer, uCEFServerComponent, 
-  uCEFServerEvents, uCEFServerHandler, uCEFWinControl, uCEFLinkedWindowParent, 
-  LazarusPackageIntf;
+  uCEFServerEvents, uCEFServerHandler, LazarusPackageIntf;
 
 implementation
 
@@ -58,7 +57,6 @@ begin
   RegisterUnit('uCEFChromium', @uCEFChromium.Register);
   RegisterUnit('uBufferPanel', @uBufferPanel.Register);
   RegisterUnit('uCEFServerComponent', @uCEFServerComponent.Register);
-  RegisterUnit('uCEFLinkedWindowParent', @uCEFLinkedWindowParent.Register);
 end;
 
 initialization
